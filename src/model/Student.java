@@ -21,19 +21,23 @@ public class Student extends Person {
     public String getStudentID() {
         return studentID;
     }
+
     public String getDepartment() {
         return department;
     }
-    public double getGPA() {
 
+    public double getGPA() {
         return GPA;
     }
+
     public void setGPA(double gpa) {
         this.GPA = gpa;
     }
+
     public Map<Course, Double> getEnrolledCourses() {
         return enrolledCourses;
     }
+
     public void enrollCourse(Course c, double grade) {
         enrolledCourses.put(c, grade);
     }
@@ -45,5 +49,14 @@ public class Student extends Person {
     @Override
     public String getRole() {
         return "Student";
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + studentID +
+                " | Name: " + getName() +
+                " | Dept: " + department +
+                " | GPA: " + GPA +
+                " | Tuition: " + calculateTuition();
     }
 }
