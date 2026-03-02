@@ -1,35 +1,44 @@
 package model;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class Course {
+
     private String code;
     private String title;
     private int maxCapacity;
+    private int credits;
     private List<Student> students;
 
-    public Course(String code, String title, int maxCapacity) {
+    public Course(String code, String title, int maxCapacity, int credits) {
         this.code = code;
         this.title = title;
         this.maxCapacity = maxCapacity;
+        this.credits = credits;
         this.students = new ArrayList<>();
     }
 
-    public String getCode() {
-        return code;
+    public Course(String code, String title, int maxCapacity) {
+        this(code, title, maxCapacity, 3);
     }
-    public String getTitle() {
-        return title;
-    }
-    public int getCapacity() {
-        return maxCapacity;
-    }
-    public List<Student> getStudents() {
-        return students;
-    }
+
+    public String getCode() { return code; }
+    public String getTitle() { return title; }
+    public int getCapacity() { return maxCapacity; }
+    public int getCredits() { return credits; }
+    public List<Student> getStudents() { return students; }
+
     public boolean isFull() {
         return students.size() >= maxCapacity;
     }
+
     public void addStudent(Student s) {
         students.add(s);
+    }
+
+    @Override
+    public String toString() {
+        return code + " - " + title + " (" + credits + " credits)";
     }
 }
