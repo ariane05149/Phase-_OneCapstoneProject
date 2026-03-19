@@ -50,17 +50,11 @@ public class UniversityManager {
         s.enrollCourse(c, grade);
         c.addStudent(s);
 
-        // Update GPA
-        double total = s.getEnrolledCourses()
-                .values()
-                .stream()
-                .mapToDouble(Double::doubleValue)
-                .sum();
 
-        s.setGPA(total / s.getEnrolledCourses().size());
+
     }
 
-    // ================= GPA =================
+    // gpa averg calculet
 
     public double calculateAverageGPA(String dept) {
 
@@ -90,8 +84,7 @@ public class UniversityManager {
     public Map<String, Course> getAllCourses() {
         return courses;
     }
-
-    // ================= FILE LOADING HELPERS =================
+  //  load files
 
     public void addLoadedStudent(Student s) {
         students.put(s.getStudentID(), s);

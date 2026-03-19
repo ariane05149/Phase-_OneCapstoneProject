@@ -71,8 +71,6 @@ public class FileManager {
                 } else {
                     s = new UndergraduateStudent(name, email, id, dept);
                 }
-
-                s.setGPA(gpa);
                 manager.addLoadedStudent(s);
             }
 
